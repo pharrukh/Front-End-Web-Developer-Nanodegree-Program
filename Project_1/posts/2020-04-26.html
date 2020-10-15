@@ -1,0 +1,22 @@
+
+04.26.2020
+<h1>Azure Functions: Part II</h1>
+azure
+azure-functions
+http
+azure-storage
+
+<h2>Azure Functions: Part II: Bindings</h2>
+
+Now I would like to look at bindings.
+
+The plan is to use table storage as a persistance layer.
+I used mixed approach of bindings and SDKs:
+<img src="images/az-func-binding-storage.png">
+The code is <a href="https://github.com/pharrukh/intro-to-az-func/tree/e2c7e3417204023fa749dfddcdf61333c3257703">here</a>.
+
+<h3>Alternative</h3>
+
+One can of course use the library to manage the input/output operations.
+In non-trivial cases it is the only way.
+When one need, for instance, use various blob types.
