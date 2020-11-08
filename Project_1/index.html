@@ -1,52 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>normuradov blog</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap"
-      rel="stylesheet"
-    />
+    <title>normurodov blog</title>
     <link href="styles/main.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="images/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <div class="container">
-      <!-- TODO: add logo -->
-      <div class="navigation box">
-        <div id="name">normuradov</div>
-        <div class="navigation-element">about</div>
-      </div>
-      <div class="content box">
-        <div class="post">
-          <div class="maxthumb" id="az-func-overview-post">
-            <a href="">
-              <!-- <img
-                class="img-post"
-                src="images/az-func-overview.png"
-                alt="Overview of Azure Functions"
-              /> -->
-            </a>
-          </div>
-          <div class="date">2020-04-26</div>
-          <div class="post-title">Azure Functions: Part II</div>
-        </div>
-        <div class="post">
-          <div class="maxthumb" id="az-func-bindings-post">
-            <a href="">
-              <!-- <img
-                class="img-post"
-                src="images/az-func-binding-storage.png"
-                alt="Azure Function Bindings"
-              /> -->
-            </a>
-          </div>
-          <div class="date">2020-04-25</div>
-          <div class="title">Azure Functions: Part I</div>
+      <div class="navigation">
+        <div id="name">normurodov</div>
+        <div class="nav-panel">
+          <div class="nav-el"><a href="about.html">about</a></div>
+          <div class="nav-el"><a href="gdpr.html">gdpr</a></div>
         </div>
       </div>
-      <!-- TODO: add sign up form -->
-      <!-- TODO: add popup with GDPR -->
-      <div class="footer box">Compyright (c) 2020, Farrukh normuradov</div>
+      <div class="content">
+        <div class="post-preview">
+          <div class="post-pic shadow" id="az-func-overview-post">
+            <a href=""> </a>
+          </div>
+          <div class="details">
+            <div class="date">2020-04-25</div>
+            <div class="post-title">Azure Functions: Part I</div>
+          </div>
+        </div>
+        <div class="post-preview">
+          <div class="post-pic shadow" id="az-func-bindings-post">
+            <a href=""> </a>
+          </div>
+          <div class="details">
+            <div class="date">2020-04-26</div>
+            <div class="post-title">Azure Functions: Part II</div>
+          </div>
+        </div>
+        <div class="post-preview">
+          <div class="post-pic shadow" id="az-func-active-directory-post">
+            <a href=""> </a>
+          </div>
+          <div class="details">
+            <div class="date">2020-04-27</div>
+            <div class="post-title">Azure Functions: Part III</div>
+          </div>
+        </div>
+        <div class="post-preview">
+          <div class="post-pic shadow" id="az-func-app-insights-post">
+            <a href=""> </a>
+          </div>
+          <div class="details">
+            <div class="date">2020-04-28</div>
+            <div class="post-title">Azure Functions: Part IV</div>
+          </div>
+        </div>
+        <div class="post-preview">
+          <div class="post-pic shadow" id="azure-dev-ops-post">
+            <a href=""> </a>
+          </div>
+          <div class="details">
+            <div class="date">2020-04-29</div>
+            <div class="post-title">
+              Ten things you can do with Azure DevOps
+            </div>
+          </div>
+        </div>
+        <div class="post-preview">
+          <div class="post-pic shadow" id="app-service-monitor-post">
+            <a href=""> </a>
+          </div>
+          <div class="details">
+            <div class="date">2020-04-30</div>
+            <div class="post-title">
+              Seven rules for good App Service monitoring
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">Copyright (c) 2020, Farrukh Normuradov</div>
     </div>
   </body>
 </html>

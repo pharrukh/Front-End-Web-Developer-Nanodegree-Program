@@ -1,62 +1,53 @@
 @import "advert.css";
 @import "footer.css";
 @import "navigation.css";
-@import "post-review.css";
+@import "post-preview.css";
 @import "subscription.css";
 
 @media (max-width: 600px) {
   body {
-    background-color: #232b2b;
-    font-size: 2em;
-    color: white;
-    font-family: "Roboto Mono", monospace;
+    margin: 0;
+    height: 100%;
   }
 
   .container {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100px 7fr 1fr;
-    border: 2px solid yellow;
-  }
-
-  .post {
+    min-height: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    border: 2px solid blue;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    /* border: 2px solid yellow; */
   }
 
-  .date {
-    border: 2px solid pink;
-  }
-
-  .title {
-    border: 2px solid grey;
-  }
-
-  .maxthumb {
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-radius: 60px;
-    width: 110px;
-    height: 110px;
-  }
-
-  #az-func-overview-post {
-    background-image: url(../images/az-func-icon.jpg);
-  }
-
-  #az-func-bindings-post {
-    background-image: url(../images/play-icon.jpg);
-  }
-
-  .box {
-    border: 1px solid red;
+  .content {
+    font-size: 2em;
+    color: rgb(0, 0, 0);
   }
 }
 
 @media (min-width: 601px) and (max-width: 1200px) {
+  body {
+    margin: 0;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 10em;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "navigation main . advertisement"
+      "footer footer footer footer";
+  }
+
+  .content {
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
 }
 
 @media (min-width: 1201px) {
