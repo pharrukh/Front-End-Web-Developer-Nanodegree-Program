@@ -3,9 +3,22 @@
   padding: 0.5em;
   margin: 0.5em;
   border-radius: 1em;
+  line-height: 1.5;
 }
 
 img {
   border-radius: 1em;
   max-width: 500px;
+}
+
+p q {
+  font-style: italic;
+}
+
+pre {
+  max-width: 900px;
+  overflow-x: scroll;
+  background: hsla(31, 80%, 90%, 0.692);
+  padding: 1em;
+  border-radius: 1em;
 }

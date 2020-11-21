@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap");
 
+.footer {
+  font-size: 0.8em;
+  text-align: center;
+  font-family: "Merriweather", serif;
+  color: black;
+  margin-bottom: 1em;
+}
+
 @media (max-width: 600px) {
   .footer {
-    font-size: 0.8em;
-    text-align: center;
-    font-family: "Merriweather", serif;
-    color: white;
-    background-color: #0099b5;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
   }
@@ -16,9 +19,5 @@
   .footer {
     grid-area: footer;
     font-size: 0.8em;
-    text-align: center;
-    font-family: "Merriweather", serif;
-    color: black;
-    background-color: grey;
   }
 }

@@ -28,6 +28,8 @@
     border-radius: 0.8em;
     padding: 1em;
     margin: 0.1em;
+    position: sticky;
+    top: 0;
   }
 
   a button {

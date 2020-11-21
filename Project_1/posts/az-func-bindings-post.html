@@ -4,13 +4,18 @@
     <title>normurodov blog</title>
     <link href="../styles/main.css" rel="stylesheet" />
     <link href="../styles/post.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="images/icon.png" />
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <div class="container">
       <div class="navigation" role="navigation">
-        <div id="name"><a href="../index.html">normurodov</a></div>
+        <figure id="logo-figure">
+          <img id="logo-img" src="../images/logo.png" alt="avatar" />
+          <figcaption>
+            <div id="name"><a href="../index.html">normurodov</a></div>
+          </figcaption>
+        </figure>
         <div class="nav-panel">
           <div class="nav-el"><a href="../about.html">about</a></div>
         </div>
@@ -18,6 +23,7 @@
       <div class="content" role="main">
         <div class="post">
           <h1>Azure Functions: Part II</h1>
+          <h2>intoduction</h2>
           <p>
             Now I would like to look at bindings. The plan is to use table
             storage as a persistance layer. I used mixed approach of bindings
@@ -34,17 +40,69 @@
               >here</a
             >.
           </p>
-          <h3>Alternative</h3>
+          <h2>alternative</h2>
+          <h3>api of Storage Account library</h3>
           <p>
             One can of course use the library to manage the input/output
             operations. In non-trivial cases it is the only way. When one need,
             for instance, use various blob types.
           </p>
+          <div class="social-sharing">
+            <ul class="share-buttons" data-source="simplesharingbuttons.com">
+              <li>
+                <a
+                  href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.normuradov.com&quote=programming%20blog"
+                  title="Share on Facebook"
+                  target="_blank"
+                  ><img
+                    alt="Share on Facebook"
+                    src="../images/simple_icons_black/Facebook.png"
+                /></a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.normuradov.com&text=programming%20blog:%20http%3A%2F%2Fwww.normuradov.com"
+                  target="_blank"
+                  title="Tweet"
+                  ><img
+                    alt="Tweet"
+                    src="../images/simple_icons_black/Twitter.png"
+                /></a>
+              </li>
+              <li>
+                <a
+                  href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.normuradov.com&title=programming%20blog&summary=original%20writing%20with%20deep%20thoughts%20that%20can%20help%20you%20live%20a%20better%20life&source=http%3A%2F%2Fwww.normuradov.com"
+                  target="_blank"
+                  title="Share on LinkedIn"
+                  ><img
+                    alt="Share on LinkedIn"
+                    src="../images/simple_icons_black/LinkedIn.png"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <div id="author-info">
+            <img src="../images/me.jpeg" /><br />
+            Farrukh Normuradov<br />
+            Programmer<br />
+            Westminster International Univesity in Tashkent<br />
+            <div id="author-bio">
+              Originally from Samarkand. Build knowledge with deep work and
+              deliberate practice. I like to see ideas becoming products and
+              products becoming value that make life easier or better for
+              someone.
+            </div>
+          </div>
         </div>
       </div>
       <div class="advertisement" role="banner">
         If you have questions do not hesitate to contact me over
         <em>farrukh-normuradov@gmail.com</em>
+        <a
+          href="https://mailchi.mp/9ff7b05941c1/normuradov"
+          alt="subscribe to my newsletter"
+          ><button>subscribe</button></a
+        >
       </div>
       <footer class="footer">Copyright (c) 2020, Farrukh Normuradov</footer>
     </div>

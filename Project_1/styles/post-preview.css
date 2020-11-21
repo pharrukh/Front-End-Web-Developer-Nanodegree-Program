@@ -8,7 +8,7 @@
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
-    background-color: #1eb53a70;
+    background-color: #1eb53a54;
     border-radius: 0.8em;
     margin: 0.1em;
   }
@@ -53,7 +53,7 @@
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
-    background-color: #1eb53a70;
+    background-color: #1eb53a54;
     border-radius: 0.8em;
     margin: 0.1em;
   }
@@ -93,28 +93,4 @@
 .shadow {
   -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-}
-
-#az-func-overview-post {
-  background-image: url(../assets/azure-function.svg);
-}
-
-#az-func-bindings-post {
-  background-image: url(../assets/storage-account.svg);
-}
-
-#az-func-active-directory-post {
-  background-image: url(../assets/active-directory.svg);
-}
-
-#az-func-app-insights-post {
-  background-image: url(../assets/app-insights.svg);
-}
-
-#azure-dev-ops-post {
-  background-image: url(../assets/azure-dev-ops.svg);
-}
-
-#app-service-monitor-post {
-  background-image: url(../assets/dashboard.svg);
 }

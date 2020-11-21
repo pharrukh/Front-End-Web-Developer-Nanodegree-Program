@@ -4,13 +4,18 @@
     <title>normurodov blog</title>
     <link href="../styles/main.css" rel="stylesheet" />
     <link href="../styles/post.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="images/icon.png" />
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <div class="container">
       <div class="navigation" role="navigation">
-        <div id="name"><a href="../index.html">normurodov</a></div>
+        <figure id="logo-figure">
+          <img id="logo-img" src="../images/logo.png" alt="avatar" />
+          <figcaption>
+            <div id="name"><a href="../index.html">normurodov</a></div>
+          </figcaption>
+        </figure>
         <div class="nav-panel">
           <div class="nav-el"><a href="../about.html">about</a></div>
         </div>
@@ -18,19 +23,92 @@
       <div class="content" role="main">
         <div class="post">
           <h1>Azure Functions: Part I</h1>
+
+          <h2>introduction</h2>
+          <p>
+            There is a great pleasure in developing these days, as you can
+            invest less time into development operations and focus on creating
+            value through code. Stateless on-demand comuting is one of the
+            things we can put to your tool belt and care less about server
+            configurations.
+          </p>
+          <h3>definition by Microsoft</h3>
+          <p>
+            <q>
+              Azure Functions is an event driven, compute-on-demand experience
+              that extends the existing Azure application platform with
+              capabilities to implement code triggered by events...
+            </q>
+            states the documentation from the repository.
+          </p>
+
+          <h2>where to start</h2>
+          <p>
+            Below I give a brief overview of how one can bootstrap oneself in
+            serverless computing.
+          </p>
+          <h3>overview</h3>
           <p>
             Azure Functions is a Service by Azure that comes as a modern
             approach to solve eternal problems in software. As the first
-            solution we build an API. Follow this to bootstrap yourself: - Sign
-            up to Azure and create basic subscription or try for free. -
-            Install: - Visual Studio Code - Azure Functions Core Tools - NodeJS
-            - Azure, Visual Studio Code Extension: Components that allow
-            integration with Azure are triggers and out-/in-put bindingds.
+            solution we build an API. Follow this to bootstrap yourself:
           </p>
+          <ul>
+            <li>
+              Signup to Azure and create basic subscription or try for free.
+            </li>
+            <li>
+              Install:
+              <ul>
+                <li>Visual Studio Code</li>
+                <li>Azure Functions Core Tools</li>
+                <li>Visual Studio Code</li>
+                <li>NodeJS</li>
+                <li>Visual Studio Code</li>
+              </ul>
+            </li>
+          </ul>
+          <h3>basic functionality</h3>
           <img
             src="../images/az-func-overview.png"
             alt="azure storage binding"
           />
+          <h3>example</h3>
+          <pre>
+module.exports = async function (context, req) {
+            if (req.method === 'GET') {
+                const id = context.bindings.req.params ? context.bindings.req.params.id : null
+                if(id){
+                    const result = Persons.find(p=>p.id == id)
+                    context.res = {
+                        // status: 200, /* Defaults to 200 */
+                        body: result
+                    };
+                }else{
+                    context.res = {
+                        // status: 200, /* Defaults to 200 */
+                        body: Persons
+                    };
+                }
+            }else if(req.method === 'POST'){
+                Persons.push(req.body)
+                context.res = {
+                    // status: 200, /* Defaults to 200 */
+                    body: Persons
+                };
+            }else if(req.method === 'DELETE'){
+                const id = context.bindings.req.params ? context.bindings.req.params.id : null
+                Persons = Persons.filter(p=>p.id != id)
+                context.res = {
+                    // status: 200, /* Defaults to 200 */
+                    body: Persons
+                };
+            }
+            else {
+               
+            }
+        };</pre
+          >
           <p>
             The basic configuration for HTTP triggered function could also be
             <a
@@ -42,11 +120,63 @@
               >here</a
             >.
           </p>
+          <div class="social-sharing">
+            <ul class="share-buttons" data-source="simplesharingbuttons.com">
+              <li>
+                <a
+                  href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.normuradov.com&quote=programming%20blog"
+                  title="Share on Facebook"
+                  target="_blank"
+                  ><img
+                    alt="Share on Facebook"
+                    src="../images/simple_icons_black/Facebook.png"
+                /></a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.normuradov.com&text=programming%20blog:%20http%3A%2F%2Fwww.normuradov.com"
+                  target="_blank"
+                  title="Tweet"
+                  ><img
+                    alt="Tweet"
+                    src="../images/simple_icons_black/Twitter.png"
+                /></a>
+              </li>
+              <li>
+                <a
+                  href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.normuradov.com&title=programming%20blog&summary=original%20writing%20with%20deep%20thoughts%20that%20can%20help%20you%20live%20a%20better%20life&source=http%3A%2F%2Fwww.normuradov.com"
+                  target="_blank"
+                  title="Share on LinkedIn"
+                  ><img
+                    alt="Share on LinkedIn"
+                    src="../images/simple_icons_black/LinkedIn.png"
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <div id="author-info">
+            <img src="../images/me.jpeg" /><br />
+            Farrukh Normuradov<br />
+            Programmer<br />
+            Westminster International Univesity in Tashkent<br />
+            <div id="author-bio">
+              Originally from Samarkand. Build knowledge with deep work and
+              deliberate practice. I like to see ideas becoming products and
+              products becoming value that make life easier or better for
+              someone.
+            </div>
+          </div>
         </div>
+        
       </div>
       <div class="advertisement" role="banner">
         If you have questions do not hesitate to contact me over
         <em>farrukh-normuradov@gmail.com</em>
+        <a
+          href="https://mailchi.mp/9ff7b05941c1/normuradov"
+          alt="subscribe to my newsletter"
+          ><button>subscribe</button></a
+        >
       </div>
       <footer class="footer">Copyright (c) 2020, Farrukh Normuradov</footer>
     </div>

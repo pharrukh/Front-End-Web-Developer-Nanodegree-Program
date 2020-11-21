@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
-figure {
-  display: flex;
-  flex-flow: column;
-  padding: 5px;
-  max-width: 192px;
-  margin: auto;
-}
-
 p {
   color: black;
   font-family: 'Indie Flower', cursive;
