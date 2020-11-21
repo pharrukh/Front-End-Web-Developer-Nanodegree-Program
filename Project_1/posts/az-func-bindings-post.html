@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>normurodov blog</title>
+    <link href="../styles/main.css" rel="stylesheet" />
+    <link href="../styles/post.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation" role="navigation">
+        <div id="name"><a href="../index.html">normurodov</a></div>
+        <div class="nav-panel">
+          <div class="nav-el"><a href="../about.html">about</a></div>
+          <div class="nav-el"><a href="../gdpr.html">gdpr</a></div>
+        </div>
+      </div>
+      <div class="content" role="main">
+        <div class="post">
+          <h1>Azure Functions: Part II</h1>
+          <p>
+            Now I would like to look at bindings. The plan is to use table
+            storage as a persistance layer. I used mixed approach of bindings
+            and SDKs:
+          </p>
+          <img
+            src="../images/az-func-binding-storage.png"
+            alt="azure storage binding"
+          />
+          <p>
+            The code is
+            <a
+              href="https://github.com/pharrukh/intro-to-az-func/tree/e2c7e3417204023fa749dfddcdf61333c3257703"
+              >here</a
+            >.
+          </p>
+          <h3>Alternative</h3>
+          <p>
+            One can of course use the library to manage the input/output
+            operations. In non-trivial cases it is the only way. When one need,
+            for instance, use various blob types.
+          </p>
+        </div>
+      </div>
+      <div class="advertisement" role="banner">
+        If you have questions do not hesitate to contact me over
+        <em>farrukh-normuradov@gmail.com</em>
+      </div>
+      <footer class="footer">Copyright (c) 2020, Farrukh Normuradov</footer>
+    </div>
+  </body>
+</html>

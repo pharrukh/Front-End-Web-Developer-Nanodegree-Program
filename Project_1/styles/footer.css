@@ -5,8 +5,8 @@
     font-size: 0.8em;
     text-align: center;
     font-family: "Merriweather", serif;
-    color:white;
-    background-color: #0099B5;
+    color: white;
+    background-color: #0099b5;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
   }
@@ -18,8 +18,8 @@
     font-size: 0.8em;
     text-align: center;
     font-family: "Merriweather", serif;
-    color:black;
-    background-color: #0099B5;
+    color: black;
+    background-color: grey;
   }
 }
 

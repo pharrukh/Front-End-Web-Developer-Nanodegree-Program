@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>normurodov blog</title>
     <link href="styles/main.css" rel="stylesheet" />
@@ -8,27 +8,29 @@
   </head>
   <body>
     <div class="container">
-      <div class="navigation">
-        <div id="name">normurodov</div>
+      <div class="navigation" role="navigation">
+        <div id="name"><a href="#">normurodov</a></div>
         <div class="nav-panel">
           <div class="nav-el"><a href="about.html">about</a></div>
           <div class="nav-el"><a href="gdpr.html">gdpr</a></div>
         </div>
       </div>
-      <div class="content">
-        <div class="post-preview">
-          <div class="post-pic shadow" id="az-func-overview-post">
-            <a href=""> </a>
-          </div>
-          <div class="details">
-            <div class="date">2020-04-25</div>
-            <div class="post-title">Azure Functions: Part I</div>
+      <div class="content" role="main">
+        <div class="post">
+          <div class="post-preview">
+            <a href="posts/az-func-overview-post.html">
+              <div class="post-pic shadow" id="az-func-overview-post"></div>
+            </a>
+            <div class="details">
+              <div class="date">2020-04-25</div>
+              <div class="post-title">Azure Functions: Part I</div>
+            </div>
           </div>
         </div>
         <div class="post-preview">
-          <div class="post-pic shadow" id="az-func-bindings-post">
-            <a href=""> </a>
-          </div>
+          <a href="posts/az-func-bindings-post.html">
+            <div class="post-pic shadow" id="az-func-bindings-post"></div>
+          </a>
           <div class="details">
             <div class="date">2020-04-26</div>
             <div class="post-title">Azure Functions: Part II</div>
@@ -75,7 +77,11 @@
           </div>
         </div>
       </div>
-      <div class="footer">Copyright (c) 2020, Farrukh Normuradov</div>
+      <div class="advertisement" role="banner">
+        If you have questions do not hesitate to contact me over
+        <em>farrukh-normuradov@gmail.com</em>
+      </div>
+      <footer class="footer">Copyright (c) 2020, Farrukh Normuradov</footer>
     </div>
   </body>
 </html>

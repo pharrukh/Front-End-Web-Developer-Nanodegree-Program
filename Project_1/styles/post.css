@@ -1,0 +1,11 @@
+.post {
+  background-color: rgba(143, 143, 143, 0.158);
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 1em;
+}
+
+img {
+  border-radius: 1em;
+  max-width: 500px;
+}

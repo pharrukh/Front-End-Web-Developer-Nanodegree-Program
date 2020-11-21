@@ -1,3 +1,27 @@
-.advertisement{
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap");
+
+@media (max-width: 600px) {
+  .advertisement {
     grid-area: advertisement;
+    font-family: "Ubuntu", sans-serif;
+    justify-self: center;
+    place-self: center;
+    background-color: grey;
+    border-radius: 0.8em;
+    padding: 1em;
+    margin: 0.1em;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  .advertisement {
+    grid-area: advertisement;
+    font-family: "Ubuntu", sans-serif;
+    justify-self: center;
+    place-self: center;
+    background-color: #1eb53a70;
+    border-radius: 0.8em;
+    padding: 1em;
+    margin: 0.1em;
+  }
 }
