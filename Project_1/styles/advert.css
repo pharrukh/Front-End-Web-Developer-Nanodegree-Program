@@ -6,22 +6,49 @@
     font-family: "Ubuntu", sans-serif;
     justify-self: center;
     place-self: center;
-    background-color: grey;
+    background-color: #fdd216;
     border-radius: 0.8em;
     padding: 1em;
-    margin: 0.1em;
+    margin: 1em;
+    font-size: 1.3em;
+  }
+
+  a button {
+    font-size: 5em;
   }
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
+@media (min-width: 601px) {
   .advertisement {
     grid-area: advertisement;
     font-family: "Ubuntu", sans-serif;
     justify-self: center;
     place-self: center;
-    background-color: #1eb53a70;
+    background-color: #fdd216;
     border-radius: 0.8em;
     padding: 1em;
     margin: 0.1em;
   }
+
+  a button {
+    font-size: 2em;
+  }
+}
+
+button {
+  background-color: grey;
+  border-color: white;
+  border-radius: 1em;
+  margin: 0.5em;
+}
+
+a button {
+  text-decoration: none;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2em;
+}
+
+a button:hover {
+  background-color: black;
 }

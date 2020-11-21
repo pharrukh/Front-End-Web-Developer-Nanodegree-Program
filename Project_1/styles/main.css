@@ -24,19 +24,15 @@
   }
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
-  body {
-    margin: 0;
-  }
-
+@media (min-width: 601px) {
   .container {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 2.5fr 10fr 0.1fr 3fr;
+    grid-template-columns: 2.5fr 10fr 0.1fr 3fr 0.3fr;
     grid-template-rows: 1fr auto;
     grid-template-areas:
-      "navigation main . advertisement"
-      "footer footer footer footer";
+      "navigation main . advertisement ."
+      "navigation footer footer footer footer";
   }
 
   .content {
@@ -48,5 +44,13 @@
   }
 }
 
-@media (min-width: 1201px) {
+body {
+  margin: 0;
+  background-size: 11px 11px;
+  background-image: linear-gradient(
+      to right,
+      rgba(128, 128, 128, 0.089) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.11) 1px, transparent 1px);
 }

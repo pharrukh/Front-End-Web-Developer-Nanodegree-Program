@@ -12,7 +12,7 @@
   }
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
+@media (min-width: 601px) {
   .footer {
     grid-area: footer;
     font-size: 0.8em;
@@ -21,7 +21,4 @@
     color: black;
     background-color: grey;
   }
-}
-
-@media (min-width: 1201px) {
 }

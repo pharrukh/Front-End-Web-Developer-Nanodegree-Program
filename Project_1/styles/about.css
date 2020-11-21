@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 figure {
   display: flex;
   flex-flow: column;
@@ -6,25 +8,10 @@ figure {
   margin: auto;
 }
 
-img {
-  max-width: 192px;
-  max-height: 192px;
-}
-
-figcaption {
-  background-color: #222;
-  color: #fff;
-  font: italic smaller sans-serif;
-  padding: 3px;
-  text-align: center;
-}
-
 p {
-  color: white;
+  color: black;
+  font-family: 'Indie Flower', cursive;
   text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: grey;
-  opacity: 0.5;
   border-radius: 1em;
   padding: 0.5em;
   margin: 0.5em;
