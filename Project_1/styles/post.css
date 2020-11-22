@@ -24,7 +24,6 @@ pre {
 }
 
 .card {
-  /* Add shadows to create the "card" effect */
   background-color: white;
   opacity: 0.9;
   border-radius: 1em;
@@ -40,12 +39,10 @@ pre {
   margin: 0;
 }
 
-/* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Add some padding inside the card container */
 .card-detail {
   padding: 2px 10px;
   text-align: center;

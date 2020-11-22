@@ -4,9 +4,26 @@
   font-size: 0.8em;
   text-align: right;
   border-radius: 1em;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "image . author-details"
+    "image . author-details"
+    "image . author-details"
+    "bio bio bio";
+}
+
+#author-info img {
+  grid-area: image;
+}
+
+#author-details {
+  grid-area: author-details;
 }
 
 #author-bio {
+  grid-area: bio;
   font-size: 0.75em;
 }
 
