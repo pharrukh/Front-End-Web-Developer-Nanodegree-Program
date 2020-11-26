@@ -47,7 +47,6 @@ function setActive(event) {
     event.target.classList.add(activeClass);
 }
 
-
 function addObservableBy(id) {
     const sectionInView = new IntersectionObserver((entries) => {
         if (entries[0].intersectionRatio > 0) {
@@ -62,6 +61,7 @@ function addObservableBy(id) {
     const section = doc.getElementById(id);
     sectionInView.observe(section);
 }
+
 
 
 
