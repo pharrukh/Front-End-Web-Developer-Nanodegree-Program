@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
-let weatherData = null;
+let projectData = null;
 
 
 /* Middleware*/
@@ -19,7 +19,7 @@ app.use(cors());
 app.use(express.static('website'));
 
 app.get('/weather-forecast', (req, res) => {
-    res.send(weatherData);
+    res.send(projectData);
 });
 
 app.post('/weather-forecast', (req, res) => {
@@ -28,7 +28,7 @@ app.post('/weather-forecast', (req, res) => {
         date: req.body.date,
         'user-response': req.body['user-response']
     };
-    weatherData = weatherForecast;
+    projectData = weatherForecast;
     res.send({ statusCode: 204 })
 });
 
