@@ -71,7 +71,7 @@ async function get() {
 
 // TODO: rewrite using native nodejs utils
 function buildUrl(zip) {
-    return `${WEATHER_API_HOST}/data/2.5/weather?zip=${zip}&appid=${KEY}`;
+    return `${WEATHER_API_HOST}/data/2.5/weather?zip=${zip}&appid=${KEY}&units=imperial`;
 }
 
 async function getWeatherFor(zip) {
