@@ -3,26 +3,36 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server/index.js",
+    "test": "jest",
+    "start": "npm run build-dev & node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
+    "build-dev": "webpack-cli serve --config webpack.dev.js",
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.17.1",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5"
+    "express": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
-    "babel-loader": "^8.0.6",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack-dev-server": "^3.7.2"
+    "css-loader": "*",
+    "dotenv": "*",
+    "html-webpack-plugin": "*",
+    "jest": "*",
+    "mini-css-extract-plugin": "*",
+    "node-sass": "*",
+    "optimize-css-assets-webpack-plugin": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "terser-webpack-plugin": "*",
+    "webpack": "^5.9.0",
+    "webpack-cli": "*",
+    "webpack-dev-server": "^3.11.0"
   }
 }

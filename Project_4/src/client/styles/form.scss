@@ -1,0 +1,40 @@
+@import "_fonts.scss";
+
+form {
+  border-radius: 1em;
+  padding: 40px;
+}
+
+input {
+  padding: 5px 20px;
+  width: 100%;
+  line-height: 2em;
+  margin: 10px 0;
+  font-family: "Cabin Sketch", cursive;
+  font-size: 2em;
+  border-radius: 1em;
+  outline: none;
+
+  &:invalid {
+    border-color: red;
+  }
+}
+
+button {
+  font-family: "Cabin Sketch", cursive;
+  align-self: center;
+  background: transparent;
+  padding: 1rem 1rem;
+  margin: 0 1rem;
+  transition: all 0.5s ease;
+  color: #41403e;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  outline: none;
+  box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+
+  &:hover {
+    box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+  }
+}

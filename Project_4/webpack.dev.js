@@ -1,35 +1,46 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/client/index.js',
     mode: 'development',
-    devtool: 'source-map',
-    stats: 'verbose',
+    entry: { index: path.resolve(__dirname, "src", 'client', "index.js") },
+    devtool: 'inline-source-map',
+    output: {
+        libraryTarget: 'var',
+        library: 'Client',
+    },
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
-            }
+                use: ["babel-loader"]
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
         ]
     },
+    watchOptions: {
+        ignored: ['node_modules/**'],
+        poll: 1000
+    },
+    devServer: {
+        contentBase: '/dist',
+        publicPath: '/',
+        compress: true,
+        port: 9000,
+        open: true
+    },
     plugins: [
+        // new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
-            template: "./src/client/views/index.html",
+            title: 'Output Management',
+            template: path.resolve(__dirname, "src", "client", "views", "index.html"),
             filename: "./index.html",
         }),
-        new CleanWebpackPlugin({
-            // Simulate the removal of files
-            dry: true,
-            // Write Logs to Console
-            verbose: true,
-            // Automatically remove all unused webpack assets on rebuild
-            cleanStaleWebpackAssets: true,
-            protectWebpackAssets: false
-        })
-    ]
+    ],
 }

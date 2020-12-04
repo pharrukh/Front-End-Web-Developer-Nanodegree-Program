@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title>NLP API Usage</title>
+  </head>
 
-    <body>
+  <body>
+    <header>
+      <div id="logo">NLP | Project 4</div>
+    </header>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
+    <main>
+      <section>
+        <form class="" onsubmit="return Client.handleSubmit(event)">
+          <label for="url-input">paste news outlet url below</label>
+          <input
+            id="url-input"
+            type="text"
+            name="url-input"
+            value=""
+            oninvalid="this.setCustomValidity('provided text is not a valid web address')"
+            oninput="this.setCustomValidity('')"
+            pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
+            placeholder="url"
+          />
+          <button
+            type="submit"
+            name=""
+            value="submit"
+            onclick="return Client.handleSubmit(event)"
+          >
+            process
+          </button>
+        </form>
+      </section>
 
-        <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
-            </section>
+      <section>
+        <div id="results"></div>
+      </section>
+    </main>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
-        </main>
-
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-
-    </body>
+    <footer>
+      <div id="signature">normuradov</div>
+    </footer>
+    <script>
+      window.onload = function () {
+        main.test();
+      };
+    </script>
+  </body>
 </html>
