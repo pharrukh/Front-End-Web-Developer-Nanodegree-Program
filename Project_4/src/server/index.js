@@ -26,33 +26,24 @@ app.listen(8080, function () {
 })
 
 app.post('/test', async function (req, res) {
-    // const host = 'https://api.meaningcloud.com/sentiment-2.1'
-    // const url = `${host}?key=${API_KEY}&lang=en&verbose=y&url=${req.body.url}`
-    // const post = bent(url, 'POST', 'json', 200);
-    // const response = await post();
-    // const {
-    //     score_tag,
-    //     agreement,
-    //     subjectivity,
-    //     confidence,
-    //     irony,
-    // } = response
+    const host = 'https://api.meaningcloud.com/sentiment-2.1'
+    const url = `${host}?key=${API_KEY}&lang=en&verbose=y&url=${req.body.url}`
+    const post = bent(url, 'POST', 'json', 200);
+    const response = await post();
+    const {
+        score_tag,
+        agreement,
+        subjectivity,
+        confidence,
+        irony,
+    } = response
 
-    const resp = {
-        agreement: "DISAGREEMENT",
-        confidence: "86",
-        irony: "NONIRONIC",
-        score_tag: "NEU",
-        subjectivity: "SUBJECTIVE"
-    }
 
-    // res.send(JSON.stringify({
-    //     score_tag,
-    //     agreement,
-    //     subjectivity,
-    //     confidence,
-    //     irony,
-    // }))
-
-    res.send(resp)
+    res.send(JSON.stringify({
+        score_tag,
+        agreement,
+        subjectivity,
+        confidence,
+        irony,
+    }))
 })

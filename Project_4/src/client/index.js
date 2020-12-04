@@ -7,14 +7,49 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
+import { isValidUrl } from './js/isValidUrl'
+
+const SERVER_HOST = 'http://localhost:8080';
 
 (async () => {
-    const SERVER_HOST = 'http://localhost:8080'
+
+    const inputUrl = document.getElementById("url-input")
+    inputUrl.addEventListener('input', () => {
+        const url = readUserInput()
+        if (isValidUrl(url)) {
+            enableButton()
+            markInputValid()
+        } else {
+            disableButton()
+            markInputInvalid()
+        }
+    })
 
     setButtonListener()
     tryToRegisterServiceWorker()
 
 })()
+
+function markInputInvalid() {
+    const inputForm = document.getElementById('url-input')
+    inputForm.setCustomValidity('wrong url');
+
+}
+
+function markInputValid() {
+    const inputForm = document.getElementById('url-input')
+    inputForm.setCustomValidity('');
+}
+
+function disableButton() {
+    const btn = document.getElementById('btn-process')
+    btn.disabled = true
+}
+
+function enableButton() {
+    const btn = document.getElementById('btn-process')
+    btn.disabled = false
+}
 
 function setButtonListener() {
     const btn = document.getElementById('btn-process')

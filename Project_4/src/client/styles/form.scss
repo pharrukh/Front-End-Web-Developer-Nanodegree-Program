@@ -37,4 +37,10 @@ button {
   &:hover {
     box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
   }
+
+  &:disabled {
+    background-color: #41403ea8;
+    color: white;
+    box-shadow: none;
+  }
 }
