@@ -12,19 +12,17 @@
 
     <main>
       <section>
-        <form class="">
+        <form>
           <label for="url-input">paste news outlet url below</label>
           <input
             id="url-input"
             type="text"
             name="url-input"
-            value=""
-            oninvalid="this.setCustomValidity('provided text is not a valid web address')"
-            oninput="this.setCustomValidity('')"
-            pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
             placeholder="url"
           />
-          <button type="submit" name="" value="submit">process</button>
+          <button id="btn-process" type="submit" name="" value="submit">
+            process
+          </button>
         </form>
       </section>
 

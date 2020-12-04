@@ -1,3 +1,5 @@
+@import "_fonts";
+
 body {
   display: flex;
   flex-direction: column;
@@ -14,4 +16,12 @@ section {
   margin: 50px auto;
   display: flex;
   flex-direction: column;
+}
+
+#results {
+  border-radius: 1em;
+  color: black;
+  font-size: 2em;
+  font-family: "Nerko One";
+  text-align: center;
 }

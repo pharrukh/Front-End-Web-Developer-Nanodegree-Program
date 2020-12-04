@@ -29,18 +29,18 @@ module.exports = {
         poll: 1000
     },
     devServer: {
-        contentBase: '/dist',
+        contentBase: path.resolve(__dirname, '/dist'),
         publicPath: '/',
         compress: true,
         port: 9000,
         open: true
     },
     plugins: [
-        // new CleanWebpackPlugin(),
+        new CleanWebpackPlugin(),
         new HtmlWebPackPlugin({
             title: 'Output Management',
             template: path.resolve(__dirname, "src", "client", "views", "index.html"),
             filename: "./index.html",
-        }),
+        })
     ],
 }

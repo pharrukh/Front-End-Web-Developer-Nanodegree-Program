@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     entry: { index: path.resolve(__dirname, "src", 'client', "index.js") },
@@ -23,6 +24,13 @@ module.exports = {
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
+        }),
+        new WorkboxPlugin.GenerateSW({
+            // these options encourage the ServiceWorkers to get in there fast
+            // and not allow any straggling "old" SWs to hang around
+            maximumFileSizeToCacheInBytes: 5000000,
+            clientsClaim: true,
+            skipWaiting: true,
         }),
     ],
     module: {
