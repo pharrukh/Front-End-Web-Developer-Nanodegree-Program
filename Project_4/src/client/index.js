@@ -6,7 +6,9 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
-const btn = document.getElementById('btn-process')
-btn.addEventListener('click', () => {
-    console.log('button was clicked')
-})
+// const btn = document.getElementById('btn-process')
+// btn.addEventListener('click', () => {
+//     console.log('button was clicked')
+// })
+
+export { handleSubmit, test }
