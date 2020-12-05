@@ -8,6 +8,7 @@ import './styles/form.scss'
 import './styles/header.scss'
 
 import { isValidUrl } from './js/isValidUrl'
+import { readUserInput } from './js/readUserInput'
 
 const SERVER_HOST = 'http://localhost:8080';
 
@@ -79,11 +80,7 @@ function presentAnalysis(result) {
     resultsEl.innerText = `agreement: ${agreement}\nconfidence: ${confidence}\nirony: ${irony}\nsubjectivity: ${subjectivity}`
 }
 
-function readUserInput() {
-    return document.getElementById('url-input').value
-}
-
-function tryToRegisterServiceWorker() {
+export function tryToRegisterServiceWorker() {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/service-worker.js')

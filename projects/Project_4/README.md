@@ -1,12 +1,21 @@
 # NLP analysis, Project 4
 
-## Technology
+## Project Goal
+
+Setup configuration for webpack.
+
+## Dependencies
 
 - webpack
+- jest
+- express js
 
-## Initial Thoughts
+## How to run project in development mode
 
-It looks like the most challenging project for me.
-I am really charmed with Service Workers.
+Setup client `npm run build-dev`
+Setup server `npm start`
 
-## Reflection
+## Run project in production mode
+
+Setup client `npm run build-prod`
+Setup server `npm start`
