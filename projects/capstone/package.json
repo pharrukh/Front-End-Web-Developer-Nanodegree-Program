@@ -5,14 +5,41 @@
   "main": "server.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "jest",
+    "start": "node src/server/index.js",
+    "build-prod": "webpack --config webpack.client.prod.js",
+    "build-dev": "webpack-cli serve --config webpack.client.dev.js",
+    "build-server": "webpack --config webpack.node.config.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "core-js": "^3.8.0",
+    "express": "*",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "*",
+    "html-webpack-plugin": "*",
+    "http-server": "^0.12.3",
+    "jest": "*",
+    "mini-css-extract-plugin": "*",
+    "node-sass": "*",
+    "optimize-css-assets-webpack-plugin": "*",
+    "sass-loader": "*",
+    "style-loader": "*",
+    "terser-webpack-plugin": "*",
+    "webpack": "^5.9.0",
+    "webpack-cli": "*",
+    "webpack-dev-server": "^3.11.0",
+    "workbox-webpack-plugin": "^6.0.2"
   }
 }
