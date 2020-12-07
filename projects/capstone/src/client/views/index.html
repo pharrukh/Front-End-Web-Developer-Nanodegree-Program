@@ -2,39 +2,25 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Weather Journal</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap"
-      rel="stylesheet"
-    />
+    <title>Travel App</title>
   </head>
   <body>
-    <div id="app">
-      <div class="holder headline"><h1>Weather Journal App</h1></div>
-      <div class="holder zip">
-        <label for="zip">Postal code</label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
+    <header><h1>Travel App</h1></header>
+    <section>
+      <form>
+        <label for="from-date">from</label>
+        <input id="from-date-picker" type="date" name="from-date" />
+        <label for="to-date">to</label>
+        <input id="to-date-picker" type="date" name="to-date" />
+        <input id="destination" type="text" placeholder="destination" />
+        <input type="submit" value="search" />
+      </form>
+      <div class="caption">
+        <div class="temperature">10°</div>
+        <div class="town-name">Samarkand</div>
+        <div class="trip-duration">16 days</div>
       </div>
-      <div class="holder feel">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea
-          class="myInput"
-          id="feelings"
-          placeholder="enter your feelings here"
-          rows="9"
-          cols="50"
-        ></textarea>
-        <button id="generate" type="submit">Generate</button>
-      </div>
-      <div class="holder entry">
-        <div class="title">Most Recent Entry</div>
-        <div id="entryHolder">
-          <div id="date"></div>
-          <div id="temp"></div>
-          <div id="content"></div>
-        </div>
-      </div>
-    </div>
-    <script src="app.js" type="text/javascript"></script>
+    </section>
+    <footer>normuradov</footer>
   </body>
 </html>
