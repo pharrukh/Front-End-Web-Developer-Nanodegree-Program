@@ -1,0 +1,30 @@
+{
+  "total": 1,
+  "totalHits": 1,
+  "hits": [
+    {
+      "id": 252782,
+      "pageURL": "https://pixabay.com/photos/john-lennon-statue-mathew-street-252782/",
+      "type": "photo",
+      "tags": "john lennon, statue, mathew street",
+      "previewURL": "https://cdn.pixabay.com/photo/2014/01/27/02/37/john-lennon-252782_150.jpg",
+      "previewWidth": 150,
+      "previewHeight": 99,
+      "webformatURL": "https://pixabay.com/get/54e5d7444250b10ff3d8992cc621337f103ed6e74e507749722b7ad4914dc3_640.jpg",
+      "webformatWidth": 640,
+      "webformatHeight": 426,
+      "largeImageURL": "https://pixabay.com/get/54e5d7444250b108f5d0846096293e7a143adfed514c704f75287fd5974bc55e_1280.jpg",
+      "imageWidth": 3888,
+      "imageHeight": 2592,
+      "imageSize": 2035451,
+      "views": 2247,
+      "downloads": 695,
+      "favorites": 2,
+      "likes": 10,
+      "comments": 1,
+      "user_id": 139904,
+      "user": "139904",
+      "userImageURL": ""
+    }
+  ]
+}
