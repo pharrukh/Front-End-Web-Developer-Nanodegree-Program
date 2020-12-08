@@ -68,6 +68,15 @@ body {
         &#btn-search {
           background-color: $greyClr;
           color: $limeClr;
+          &:hover {
+            background-color: $limeClr;
+            color: $greyClr;
+          }
+        }
+        &#destination,&#to-date-picker,&#from-date-picker {
+          &:hover {
+            border: solid 2px;
+          }
         }
       }
     }
