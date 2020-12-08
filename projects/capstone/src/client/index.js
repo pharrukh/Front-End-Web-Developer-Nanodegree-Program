@@ -1,8 +1,24 @@
 import './styles/style.scss'
 
-const btnSearch = document.getElementById('btn-search')
-btnSearch.addEventListener('click', async (e) => {
-    e.preventDefault()
+setSearchClickListener()
+
+function setSearchClickListener() {
+    const btnSearch = document.getElementById('btn-search')
+    btnSearch.addEventListener('click', async (e) => {
+        e.preventDefault()
+        const { duration, townName, averageTemp, imageUrl } = await getTripData()
+        setData(duration, townName, averageTemp, imageUrl)
+    })
+}
+
+function setData(duration, townName, averageTemp, imageUrl) {
+    setImage(imageUrl)
+    setTemperature(averageTemp)
+    setTripDuration(duration)
+    setDestination(townName)
+}
+
+async function getTripData() {
     const response = await fetch('http://localhost:3000/process', {
         method: 'POST',
         headers: {
@@ -10,20 +26,29 @@ btnSearch.addEventListener('click', async (e) => {
         },
         body: JSON.stringify(readUserInput())
     })
-    const { duration, townName, averageTemp, imageUrl } = await response.json()
-    console.log(duration, townName, averageTemp, imageUrl)
-    const caption = document.getElementById('caption')
-    caption.style.backgroundImage = `url('${imageUrl}')`;
-    
-    const temperature = document.getElementById('temperature')
-    temperature.innerText = `${averageTemp}°`
 
-    const tripDuration = document.getElementById('trip-duration')
-    tripDuration.innerText = `${duration} days`
+    return await response.json()
+}
 
+function setDestination(townName) {
     const destinationName = document.getElementById('town-name')
     destinationName.innerText = townName
-})
+}
+
+function setTripDuration(duration) {
+    const tripDuration = document.getElementById('trip-duration')
+    tripDuration.innerText = `${duration} days`
+}
+
+function setTemperature(temp) {
+    const temperature = document.getElementById('temperature')
+    temperature.innerText = `${temp}°`
+}
+
+function setImage(url) {
+    const caption = document.getElementById('caption')
+    caption.style.backgroundImage = `url('${url}')`;
+}
 
 function readUserInput() {
     const fromDatePicker = document.getElementById('from-date-picker')

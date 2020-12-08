@@ -22,11 +22,11 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
-        // new WorkboxPlugin.GenerateSW({
-        //     maximumFileSizeToCacheInBytes: 5000000,
-        //     clientsClaim: true,
-        //     skipWaiting: true,
-        // }),
+        new WorkboxPlugin.GenerateSW({
+            maximumFileSizeToCacheInBytes: 5000000,
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
     ],
     module: {
         rules: [

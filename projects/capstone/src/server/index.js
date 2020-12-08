@@ -3,13 +3,12 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { get } = require('axios')
 const dotenv = require('dotenv');
-const moment = require('moment')
+const { calculateDuration } = require('./calculate-duration')
 
 const poorMansCache = { to: null, from: null, destination: null, result: null }
 
 const app = express();
 const port = 3000;
-let projectData = null;
 
 dotenv.config()
 const GEONAMES_USERNAME = process.env.GEONAMES_USERNAME
@@ -20,15 +19,9 @@ const GEONAMES_HOST = 'http://api.geonames.org'
 const WEATHERBIT_HOST = 'https://api.weatherbit.io'
 const PIXABAY_HOST = 'https://pixabay.com'
 
-/* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// Cors for cross origin allowance
 app.use(cors());
-
-// Initialize the main project folder
 app.use(express.static('../../dist'));
 
 app.post('/process', async (req, res) => {
@@ -38,7 +31,7 @@ app.post('/process', async (req, res) => {
     } else {
         const { townName, lng, lat } = await getGeoData(destination)
         const result = {
-            duration: calcuateDuration(from, to),
+            duration: calculateDuration(from, to),
             townName,
             averageTemp: await getAverageTemperature(lat, lng),
             imageUrl: await getTownImage(townName)
@@ -80,11 +73,7 @@ async function getAverageTemperature(lat, lng) {
     return Math.round(averageTemp)
 }
 
-// Setup Server
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
 
-function calcuateDuration(from, to) {
-    return moment(to).diff(moment(from), 'days') + 1
-}

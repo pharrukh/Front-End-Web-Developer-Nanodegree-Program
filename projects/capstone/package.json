@@ -7,9 +7,8 @@
   "scripts": {
     "test": "jest",
     "start": "node dist/server.js",
-    "build-prod": "webpack --config webpack.client.prod.js",
-    "build-dev": "webpack-cli serve --config webpack.client.dev.js",
-    "build-server": "webpack --config webpack.node.config.js",
+    "build:client:prod": "webpack --config webpack.client.prod.js",
+    "build:client:dev": "webpack-cli serve --config webpack.client.dev.js",
     "build:server:dev": "webpack --config webpack.server.dev.js --watch"
   },
   "author": "",
