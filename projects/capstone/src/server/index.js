@@ -3,6 +3,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { get } = require('axios')
 const dotenv = require('dotenv');
+const moment = require('moment')
+
+const poorMansCache = { to: null, from: null, destination: null, result: null }
 
 const app = express();
 const port = 3000;
@@ -13,6 +16,10 @@ const GEONAMES_USERNAME = process.env.GEONAMES_USERNAME
 const WEATHERBIT_KEY = process.env.WEATHERBIT_KEY
 const PIXABAY_KEY = process.env.PIXABAY_KEY
 
+const GEONAMES_HOST = 'http://api.geonames.org'
+const WEATHERBIT_HOST = 'https://api.weatherbit.io'
+const PIXABAY_HOST = 'https://pixabay.com'
+
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,38 +29,62 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('../../dist'));
 
-app.get('/weather-forecast', (req, res) => {
-    res.send(projectData);
+app.post('/process', async (req, res) => {
+    const { from, to, destination } = req.body
+    if (isInCache(from, to, destination)) {
+        res.send(poorMansCache.result)
+    } else {
+        const { townName, lng, lat } = await getGeoData(destination)
+        const result = {
+            duration: calcuateDuration(from, to),
+            townName,
+            averageTemp: await getAverageTemperature(lat, lng),
+            imageUrl: await getTownImage(townName)
+        }
+        addToCache(from, to, destination, result)
+        res.send(result)
+    }
 });
 
-app.post('/weather-forecast', (req, res) => {
-    const weatherForecast = {
-        temperature: req.body.temperature,
-        date: req.body.date,
-        'user-response': req.body['user-response']
-    };
-    projectData = weatherForecast;
-    res.send({ statusCode: 204 })
-});
+function isInCache(from, to, destination) {
+    return poorMansCache.to === to
+        && poorMansCache.from === from
+        && poorMansCache.destination === destination
+}
+
+function addToCache(from, to, destination, result) {
+    poorMansCache.to = to
+    poorMansCache.from = from
+    poorMansCache.destination = destination
+    poorMansCache.result = result
+}
+
+async function getGeoData(destination) {
+    const url = `${GEONAMES_HOST}/geoCodeAddressJSON?q=${destination}&username=${GEONAMES_USERNAME}`
+    const geoResponse = await get(url)
+    const townName = geoResponse.data.address.adminName2
+    const { lng, lat } = geoResponse.data.address
+    return { townName, lng, lat }
+}
+
+async function getTownImage(townName) {
+    const pixabayResponse = await get(`${PIXABAY_HOST}/api/?key=${PIXABAY_KEY}&q=${townName}`)
+    return pixabayResponse.data.hits[0].webformatURL
+}
+
+async function getAverageTemperature(lat, lng) {
+    const weatherResponse = await get(`${WEATHERBIT_HOST}/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${WEATHERBIT_KEY}`)
+    const averageTemp = weatherResponse.data.data.map(r => r.temp).reduce((a, b) => (a + b) / 2)
+    return Math.round(averageTemp)
+}
 
 // Setup Server
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
 
-(async () => {
-    const userInput = 'Samarkand'
-    const GEONAMES_HOST = 'http://api.geonames.org'
-    const url = `${GEONAMES_HOST}/geoCodeAddressJSON?q=${userInput}&username=${GEONAMES_USERNAME}`
-    console.log(url)
-    const geoResponse = await get(url)
-    const { lng, lat } = geoResponse.data.address
-    console.log(lng, lat)
-    const WEATHERBIT_HOST = 'https://api.weatherbit.io'
-    const weatherResponse = await get(`${WEATHERBIT_HOST}/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${WEATHERBIT_KEY}`)
-    const PIXABAY_HOST = 'https://pixabay.com'
-    const pixabayResponse = await get(`${PIXABAY_HOST}/api/?key=${PIXABAY_KEY}&q=${userInput}`)
-    console.log(JSON.stringify(pixabayResponse.data.hits))
-})()
+function calcuateDuration(from, to) {
+    return moment(to).diff(moment(from), 'days') + 1
+}

@@ -1,24 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap");
 
 body {
   height: 100vh;
-  h1 {
-    padding-left: 1em;
-    font-size: 3em;
-  }
   margin: 0;
   display: grid;
   grid-template:
     "header header"
     "container ."
     "footer footer";
+  font-family: "Texturina", serif;
 
-    font-family: 'Texturina', serif;
+  h1 {
+    padding-left: 1em;
+    font-size: 3em;
+  }
+
   header {
     grid-area: header;
     border-bottom: 0.1em solid grey;
     max-height: 150px;
   }
+
   footer {
     margin-top: auto;
     max-height: 20px;
@@ -27,6 +29,7 @@ body {
     padding-left: 0.6em;
     border-top: 0.1em solid grey;
   }
+
   section {
     grid-area: container;
     display: flex;
@@ -44,17 +47,16 @@ body {
       justify-content: center;
       padding: 0.5em;
       text-align: center;
+
       input {
         margin: 0.5em;
       }
     }
 
-    .caption {
-      background-image: url("https://cdn.pixabay.com/photo/2013/10/17/14/03/bibi-xanom-196898_960_720.jpg");
+    #caption {
       min-width: 400px;
       min-height: 400px;
       background-size: cover;
-      // border-radius: 1em;
       color: white;
 
       display: grid;
@@ -62,19 +64,19 @@ body {
         "temperature town-name"
         "trip-duration .";
 
-      .temperature {
+      #temperature {
         padding-left: 0.3em;
         padding-top: 0.3em;
       }
 
-      .town-name {
+      #town-name {
         display: flex;
         justify-content: flex-end;
         padding-right: 0.3em;
         padding-top: 0.3em;
       }
 
-      .trip-duration {
+      #trip-duration {
         display: flex;
         align-items: flex-end;
         padding-left: 0.3em;
