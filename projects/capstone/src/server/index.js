@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { get } = require('axios')
 const dotenv = require('dotenv');
 const { calculateDuration } = require('./calculate-duration')
+const { join } = require('path')
 
 const poorMansCache = { to: null, from: null, destination: null, result: null }
 
@@ -22,7 +23,18 @@ const PIXABAY_HOST = 'https://pixabay.com'
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('../../dist'));
+
+app.use(express.static('/dist'));
+
+app.get('/', function (req, res) {
+    res.sendFile(join(__dirname, 'index.html'));
+});
+app.get('/index.css', function (req, res) {
+    res.sendFile(__dirname + "/" + "index.css");
+});
+app.get('/index.js', function (req, res) {
+    res.sendFile(__dirname + "/" + "index.js");
+});
 
 app.post('/process', async (req, res) => {
     const { from, to, destination } = req.body
